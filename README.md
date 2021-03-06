@@ -39,6 +39,18 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 $ sudo docker run hello-world
 ```
+도커 오류시
+(DEV-[occiderepi301:/home/occidere] docker ps -a
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied)
+```
+#/var/run/docker.sock 파일의 권한을 666으로 변경하여 그룹 내 다른 사용자도 접근 가능하게 변경
+$ sudo chmod 666 /var/run/docker.sock
+#또는 chown 으로 group ownership 변경
+$ sudo chown root:docker /var/run/docker.sock
+```
+
+
 
 #출처
 https://jcil.co.kr/10
+https://github.com/occidere/TIL/issues/116
