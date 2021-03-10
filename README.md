@@ -89,9 +89,71 @@ sudo apt-get install -y kubectl
 kubectl get nodes
 ```
 
+# 배포
+hello-world pull
+```
+docker pull tutum/hello-world
+```
+yml 생성
+```
+vim hello-world.yml
+```
+hello-world.yml 작성
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  labels:
+    app: hello-world
+spec:
+  selector:
+    matchLabels:
+      app: hello-world
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: hello-world
+        tier: frontend
+    spec:
+      containers:
+        - image: tutum/hello-world
+          name: hello-world
+          ports:
+            - containerPort: 80
+              name: hello-world
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+  labels:
+    app: hello-world
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+  selector:
+    app: hello-world
+    tier: frontend
+```
+배포확인
+```
+kubectl get all
+```
+로컬 ip 확인
+```
+minikube ip
+```
+
+
 # 출처
 https://soyoung-new-challenge.tistory.com/52
 
 http://www.kwangsiklee.com/2017/05/%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
 
 https://hanseokhyeon.tistory.com/entry/Ubuntu%EC%97%90-Minikube-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
+
+https://subicura.com/k8s/guide/#%E1%84%8B%E1%85%AF%E1%84%83%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%A6%E1%84%89%E1%85%B3-%E1%84%87%E1%85%A2%E1%84%91%E1%85%A9
