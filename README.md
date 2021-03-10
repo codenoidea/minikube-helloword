@@ -55,6 +55,35 @@ sudo service docker restart
 재부팅 or 로그아웃 후 로그인
 ```
 
+#Minikube 설치
+최신 버전을 설치
+```
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+```
+Minikube 실행파일이 사용자 실행 경로에 추가
+```
+sudo mkdir -p /usr/local/bin/
+sudo install minikube /usr/local/bin/
+```
+Minikube 실행
+```
+minikube start
+```
+상태 확인
+```
+minikube status
+```
+
+#Kubectl 설치
+설치 진행
+```
+sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
 
 #출처
 https://soyoung-new-challenge.tistory.com/52
