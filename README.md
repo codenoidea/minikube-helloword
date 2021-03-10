@@ -48,16 +48,15 @@ docker version
 ```
 
 도커 오류시
-(DEV-[occiderepi301:/home/occidere] docker ps -a
-Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied)
+(Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied)
 ```
-#/var/run/docker.sock 파일의 권한을 666으로 변경하여 그룹 내 다른 사용자도 접근 가능하게 변경
-sudo chmod 666 /var/run/docker.sock
-#또는 chown 으로 group ownership 변경
-sudo chown root:docker /var/run/docker.sock
+sudo usermod -a -G docker $USER
+sudo service docker restart
+재부팅 or 로그아웃 후 로그인
 ```
-
 
 
 #출처
 https://soyoung-new-challenge.tistory.com/52
+
+http://www.kwangsiklee.com/2017/05/%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
