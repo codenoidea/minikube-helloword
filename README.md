@@ -84,8 +84,14 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 sudo apt-get update
 sudo apt-get install -y kubectl
 ```
+확인
+```
+kubectl get nodes
+```
 
 #출처
 https://soyoung-new-challenge.tistory.com/52
 
 http://www.kwangsiklee.com/2017/05/%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
+
+https://hanseokhyeon.tistory.com/entry/Ubuntu%EC%97%90-Minikube-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
