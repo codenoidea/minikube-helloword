@@ -55,7 +55,7 @@ sudo service docker restart
 재부팅 or 로그아웃 후 로그인
 ```
 
-#Minikube 설치
+# Minikube 설치
 최신 버전을 설치
 ```
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
@@ -75,7 +75,7 @@ minikube start
 minikube status
 ```
 
-#Kubectl 설치
+# Kubectl 설치
 설치 진행
 ```
 sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2
@@ -89,7 +89,7 @@ sudo apt-get install -y kubectl
 kubectl get nodes
 ```
 
-#출처
+# 출처
 https://soyoung-new-challenge.tistory.com/52
 
 http://www.kwangsiklee.com/2017/05/%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95-solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
